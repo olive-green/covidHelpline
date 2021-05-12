@@ -17,9 +17,13 @@ body {
   background-color: #fefefe;
 }
 
-
-
 .main{
+  position: relative;
+  top: 136px;
+}
+
+
+.title,.home,.tree,.treeMain,.branch,.trunk,.homeBody,.wall,.chimney,.terrace,.door,.window,.ground,.covid,.covid1,.covid2,.covid3{
    padding: 0;
   box-sizing: border-box;
   top: 0;
@@ -29,176 +33,8 @@ body {
   margin: 0 auto;
   position: absolute;
 }
-.title{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.home{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.tree{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.treeMain{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.branch{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.trunk{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.homeBody{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.wall{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.chimney{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.terrace{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.door{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.window{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.ground{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.covid{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.covid1{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.covid2{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
-.covid3{
-   padding: 0;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-}
+
+
 
 .content, .main .home .homeBody .window::after, .main .home .homeBody .window::before, .main .home .homeBody .door::after, .main .home .homeBody .door::before, .main .home .homeBody .terrace::after, .main .home .homeBody::before, .main .home .tree .trunk::after, .main .home .tree .trunk::before, .main .home .tree .treeMain::after {
   content: "";
@@ -211,7 +47,7 @@ body {
 
 .main .title {
   text-align: center;
-  top: 90px;
+  top: 137px;
   text-transform: uppercase;
   color: #1E3456;
   line-height: 1.7;
@@ -437,14 +273,42 @@ body {
   animation: leftRight 4s ease-in-out infinite;
 }
 
+
+/* leads css */
+.leads .flexbox{
+  display:flex;
+}
+
+.leads .flexbox .items{
+  /* border:1px solid ; */
+  z-index: 1;
+  margin: 10px 16px;
+  height: 166px;
+  width: 164px;
+  box-shadow: 5px 5px 14px #d29898;
+}
+.leads .flexbox img{
+  height: 123px;
+  width: 118px;
+}
+
+.leads .flexbox .items a{
+  /* display: block; */
+  cursor:pointer; 
+  /* text-align: center; */
+  text-decoration: none;
+  padding:2px 5px;
+}
+
+
+
+/* cards css */
+/*
 .card{
   position: absolute;
     top: 82%;
     left: 22%;
 }
-
-
-
 .card {
   background: white;
   padding: 38px 36px;
@@ -533,7 +397,7 @@ body {
 }
 .card details[open] p {
   padding-left: 32px;
-}
+} */
 
 @keyframes floating {
   0% {
