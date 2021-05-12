@@ -1,0 +1,26 @@
+{
+  "name": "covidHelpline",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olive-green/covidHelpline.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olive-green/covidHelpline/issues"
+  },
+  "homepage": "https://github.com/olive-green/covidHelpline#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.8",
+    "nodemon": "^2.0.7"
+  }
+}
