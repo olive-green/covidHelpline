@@ -114,7 +114,7 @@ app.get("/bloodbankForm",(req,res)=>{
 app.get("/oxygen-admin/edit/:id",async(req,res)=>{
     const  oxygen=await Oxygen.findById(req.params.id);
     // console.log(bloodBank)
-    res.render("forms/oxgenForm",{oxygen:oxygen});
+    res.render("forms/oxygenForm",{oxygen:oxygen});
 })
 //oxygen edit save route
 app.put("/oxygen-admin/edit/:id",async(req,res)=>{
