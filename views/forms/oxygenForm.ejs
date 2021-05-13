@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../admin.css">
+    <title>Oxygen Admin form</title>
+</head>
+<body>
+   <section>
+    <div class="container">
+        <div class="user articleBx">
+            <div class="formBx">
+                <h2>Enter the verified leads</h2>
+                <form id="form" action="" method="POST">
+                   <input  required type="text" placeholder="Enter the authority name" class="" value="<%= oxygen.authorityName %>" id="authority" name="authority">
+                    <input required type="text" placeholder="Enter address" class="" value="<%= oxygen.address %>" id="address" name="address">
+                    <textarea name="city" placeholder="Enter city" class="" id="city"><%= oxygen.city %></textarea> 
+                    <input  type="text" class="" placeholder="Contact" value="<%= oxygen.contact %>" id="contact" name="contact">
+                    <input  type="hidden" class="" placeholder="leadId" value="<%= oxygen.id %>" id="leadId" name="leadId">
+                    
+                    <div class="control-buttons">
+                        <div class="cancel"><a href="/" class="btn btn-danger">Cancel</a></div>
+
+                        <button type="submit"  class="btn btn-success"name="" id="save">Save(for new lead)</button>
+                        <button type="submit"  class="btn btn-success"name="" id="edit">Submit(for changing lead)</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+   </section>
+   <script>
+       let  save=document.getElementById("save");
+       let  edit=document.getElementById("edit");
+       let  form=document.getElementById("form");
+       const  leadId=document.getElementById("leadId").value;
+       save.addEventListener("click",()=>{
+            form.action="/resources/oxygen";
+       })
+       edit.addEventListener("click",()=>{
+            form.action=`/oxygen-admin/edit/${leadId}?_method=PUT`;
+       })
+   </script>
+</body>
+</html>

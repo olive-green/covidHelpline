@@ -4,31 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./admin.css">
+    
+    <link rel="stylesheet" href="./cards.css">
     <title>Plasma Admin</title>
 </head>
 <body>
     <section>
-        <div class="container">
-            <div class="user articleBx">
-                <div class="formBx">
-                    <h2>Enter the verified leads</h2>
-                    <form action="/resources/plasma" method="POST">
-                       <input  required type="text" placeholder="Enter the authority name" class="" value="" id="authority" name="authority">
-                        <input required type="text" placeholder="Enter address" class="" value="" id="address" name="address">
-                        <textarea name="city" placeholder="Enter city" class="" id="city"></textarea> 
-                        <input  type="text" class="" placeholder="Contact" value="" id="contact" name="contact">
-                        <div class="control-buttons">
-                            
-                        <div class="cancel"><a href="/" class="btn btn-danger">Cancel</a></div>
-
-                        <button type="submit"  class="btn btn-success"name="" id="">Save</button>
-                        </div>
-                        
-                    </form>
-                </div>
+            <div class="newLead">
+                <a href="/plasmaForm" class="">Add a new Lead</a>
             </div>
-        </div>
+            <div class="card"> 
+                <h1>Covid Helpline numbers<br> and leads</h1>
+                <% plasma.forEach(plasma => { %>
+
+                    <details class="warning">
+                        <summary><%= plasma.authorityName %></summary>
+                        <ul>
+                            
+                            <li>Address:</li>
+                            <%= plasma.address %>
+                            <br><br>
+                            <li>City:</li>
+                            <%= plasma.city %>
+                            <br><br>
+                            <li>Contact No:</li>
+                            <%= plasma.contact %>
+                            <br><br>
+                            <li>Last Verified At:</li>
+                            <%= plasma.lastVerified.toLocaleDateString() %>
+                            <br><br>
+                        </ul>
+                        <a id="edit" href="/plasma-admin/edit/<%= plasma.id %>">Edit</a>
+                        <form action=""  method="POST">
+                            <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
+                        </form>
+                    </details>
+               <% }) %>
+            </div>
+            
+
     </section>
+    
 </body>
 </html>

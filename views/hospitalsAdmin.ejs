@@ -4,31 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./admin.css">
+    
+    <link rel="stylesheet" href="./cards.css">
     <title>Hospitals Admin</title>
 </head>
 <body>
     <section>
-        <div class="container">
-            <div class="user articleBx">
-                <div class="formBx">
-                    <h2>Enter the verified leads</h2>
-                    <form action="/resources/hospitals" method="POST">
-                       <input  required type="text" placeholder="Enter the authority name" class="" value="" id="authority" name="authority">
-                        <input required type="text" placeholder="Enter address" class="" value="" id="address" name="address">
-                        <textarea name="city" placeholder="Enter city" class="" id="city"></textarea> 
-                        <input  type="text" class="" placeholder="Contact" value="" id="contact" name="contact">
-                        <div class="control-buttons">
-                            
-                        <div class="cancel"><a href="/" class="btn btn-danger">Cancel</a></div>
-
-                        <button type="submit"  class="btn btn-success"name="" id="">Save</button>
-                        </div>
-                        
-                    </form>
-                </div>
+            <div class="newLead">
+                <a href="/hopitalsForm" class="">Add a new Lead</a>
             </div>
-        </div>
+            <div class="card"> 
+                <h1>Covid Helpline numbers<br> and leads</h1>
+                <% hospitals.forEach(hospitals => { %>
+    
+                    <details class="warning">
+                        <summary><%= hospitals.authorityName %></summary>
+                        <ul>
+                            
+                            <li>Address:</li>
+                            <%= hospitals.address %>
+                            <br><br>
+                            <li>City:</li>
+                            <%= hospitals.city %>
+                            <br><br>
+                            <li>Contact No:</li>
+                            <%= hospitals.contact %>
+                            <br><br>
+                            <li>Last Verified At:</li>
+                            <%= hospitals.lastVerified.toLocaleDateString() %>
+                            <br><br>
+                        </ul>
+                        <a id="edit" href="/hospitals-admin/edit/<%= hospitals.id %>">Edit</a>
+                        <form action=""  method="POST">
+                            <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
+                        </form>
+                    </details>
+               <% }) %>
+            </div>
+            
+
     </section>
+    
 </body>
 </html>

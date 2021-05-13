@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./admin.css">
+    
     <link rel="stylesheet" href="./cards.css">
     <title>Blood Bank Admin</title>
 </head>
 <body>
     <section>
-        
+            <div class="newLead">
+                <a href="/bloodbankForm" class="">Add a new Lead</a>
+            </div>
             <div class="card"> 
                 <h1>Covid Helpline numbers<br> and leads</h1>
                 <% bloodBank.forEach(bloodBank => { %>
@@ -33,63 +35,16 @@
                             <br><br>
 
                         </ul>
-                        <a id="edit" href="#container">Edit</a>
+                        <a id="edit" href="/bloodbank-admin/edit/<%= bloodBank.id %>">Edit</a>
                         <form action=""  method="POST">
                             <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
                         </form>
                     </details>
                <% }) %>
             </div>
-            <div id="container" class="container">
-                <div class="user articleBx">
-                    <div class="formBx">
-                        <h2>Enter the verified leads</h2>
-                        <form action="/resources/bloodBank" method="POST">
-                           <input  required type="text" placeholder="Enter the authority name" class="" value="<%= bloodBank.authorityName %>" id="authority" name="authority">
-                            <input required type="text" placeholder="Enter address" class="" value="<%= bloodBank.address %>" id="address" name="address">
-                            <textarea name="city" placeholder="Enter city" class="" id="city"><%= bloodBank.city %></textarea> 
-                            <input  type="text" class="" placeholder="Contact" value="<%= bloodBank.city %>" id="contact" name="contact">
-                            <div class="control-buttons">
-                                
-                            <div class="cancel"><a href="/" class="btn btn-danger">Cancel</a></div>
-    
-                            <button type="submit"  class="btn btn-success"name="" id="">Save</button>
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-                </div>
+            
+
     </section>
-    <script>
-        
-        let edit=document.getElementById("edit");
-        let container=document.getElementById("container");
-        edit.addEventListener("click",()=>{
-            container.style.display="none";
-            let divTag=document.createElement("div")
-            divTag.classList.add("container");
-            let markup=`
-            <div class="user articleBx">
-                    <div class="formBx">
-                        <h2>Enter the verified leads</h2>
-                        <form action="/resources/bloodBank" method="POST">
-                           <input  required type="text" placeholder="Enter the authority name" class="" value="${bloodBank}" id="authority" name="authority">
-                            <input required type="text" placeholder="Enter address" class="" value="<%= bloodBank.address %>" id="address" name="address">
-                            <textarea name="city" placeholder="Enter city" class="" id="city"><%= bloodBank.city %></textarea> 
-                            <input  type="text" class="" placeholder="Contact" value="<%= bloodBank.city %>" id="contact" name="contact">
-                            <div class="control-buttons">
-                                
-                            <div class="cancel"><a href="/" class="btn btn-danger">Cancel</a></div>
     
-                            <button type="submit"  class="btn btn-success"name="" id="">Save</button>
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-            `
-        })
-    </script> 
 </body>
 </html>
