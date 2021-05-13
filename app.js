@@ -97,7 +97,7 @@ app.put("/bloodbank-admin/edit/:id",async(req,res)=>{
     
     try{
         bloodBank=await bloodBank.save();
-        res.redirect("/bloodBank");
+        res.redirect("/bloodBank-admin");
     }
     catch(err){
         console.log(err)
@@ -128,7 +128,7 @@ app.put("/oxygen-admin/edit/:id",async(req,res)=>{
     
     try{
         oxygen=await oxygen.save();
-        res.redirect("/oxygen");
+        res.redirect("/oxygen-admin");
     }
     catch(err){
         console.log(err)
@@ -160,7 +160,7 @@ app.put("/hospitals-admin/edit/:id",async(req,res)=>{
     
     try{
         hospitals=await hospitals.save();
-        res.redirect("/hospitals");
+        res.redirect("/hospitals-admin");
     }
     catch(err){
         console.log(err)
@@ -170,7 +170,7 @@ app.put("/hospitals-admin/edit/:id",async(req,res)=>{
 
 //hospitals new lead get route
 app.get("/hospitalsForm",(req,res)=>{
-    res.render("forms/hospitalsForm",{hospitals: new hospitals()});
+    res.render("forms/hospitalsForm",{hospitals: new Hospitals()});
 })
 
 
@@ -192,7 +192,7 @@ app.put("/plasma-admin/edit/:id",async(req,res)=>{
     
     try{
         plasma=await plasma.save();
-        res.redirect("/plasma");
+        res.redirect("/plasma-admin");
     }
     catch(err){
         console.log(err)
@@ -202,11 +202,28 @@ app.put("/plasma-admin/edit/:id",async(req,res)=>{
 
 //plasma new lead get route
 app.get("/plasmaForm",(req,res)=>{
-    res.render("forms/plasmaForm",{plasma: new plasma()});
+    res.render("forms/plasmaForm",{plasma: new Plasma()});
 })
 
 
 
+// All delete routes
+app.delete("/hospitals-admin/delete/:id",async(req,res)=>{
+    await Hospitals.findByIdAndDelete(req.params.id);
+    res.redirect("/hospitals-admin");
+})
+app.delete("/bloodbank-admin/delete/:id",async(req,res)=>{
+    await BloodBank.findByIdAndDelete(req.params.id);
+    res.redirect("/bloodbank-admin");
+})
+app.delete("/oxygen-admin/delete/:id",async(req,res)=>{
+    await Oxygen.findByIdAndDelete(req.params.id);
+    res.redirect("/oxygen-admin");
+})
+app.delete("/plasma-admin/delete/:id",async(req,res)=>{
+    await Plasma.findByIdAndDelete(req.params.id);
+    res.redirect("/plasma-admin");
+})
 
 //server connection
 app.listen(port,()=>{

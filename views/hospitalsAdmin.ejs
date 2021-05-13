@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./cards.css">
     <title>Hospitals Admin</title>
 </head>
 <body>
+    <div class="header">
+        <a href="/"><i class="fas fa-home" style="font-size: 3rem;"></i></a>
+        <h2 class="heading">All ICU Bed Leads</h2>
+    </div>
     <section>
             <div class="newLead">
                 <a href="/hopitalsForm" class="">Add a new Lead</a>
@@ -32,10 +36,11 @@
                             <br><br>
                             <li>Last Verified At:</li>
                             <%= hospitals.lastVerified.toLocaleDateString() %>
+                            <%= hospitals.lastVerified.toLocaleTimeString() %>
                             <br><br>
                         </ul>
                         <a id="edit" href="/hospitals-admin/edit/<%= hospitals.id %>">Edit</a>
-                        <form action=""  method="POST">
+                        <form action="/hospitals-admin/delete/<%= hospitals.id %>?_method=DELETE"  method="POST">
                             <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
                         </form>
                     </details>

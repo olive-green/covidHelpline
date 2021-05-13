@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./cards.css">
     <title>Blood Bank Admin</title>
 </head>
 <body>
+    <div class="header">
+        <a href="/"><i class="fas fa-home" style="font-size: 3rem;"></i></a>
+        <h2 class="heading">All Blood Banks Leads</h2>
+    </div>
     <section>
             <div class="newLead">
                 <a href="/bloodbankForm" class="">Add a new Lead</a>
@@ -32,11 +36,12 @@
                             <br><br>
                             <li>Last Verified At:</li>
                             <%= bloodBank.lastVerified.toLocaleDateString() %>
+                            <%= bloodBank.lastVerified.toLocaleTimeString() %>
                             <br><br>
 
                         </ul>
                         <a id="edit" href="/bloodbank-admin/edit/<%= bloodBank.id %>">Edit</a>
-                        <form action=""  method="POST">
+                        <form action="/bloodbank-admin/delete/<%= bloodBank.id %>?_method=DELETE"  method="POST">
                             <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
                         </form>
                     </details>

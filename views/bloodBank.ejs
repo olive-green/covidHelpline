@@ -8,13 +8,13 @@
     <title>
         <%= title.title %>
     </title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./cards.css">
 </head>
 
 <body>
     <div class="header">
-        <h2><a href="/">Home</a></h2>
+        <a href="/"><i class="fas fa-home" style="font-size: 3rem;"></i></a>
         <h2 class="heading">All Blood Banks Leads</h2>
     </div>
     <div class="container">
@@ -38,6 +38,7 @@
                         <br><br>
                         <li>Last Verified At:</li>
                         <%= bloodBank.lastVerified.toLocaleDateString() %>
+                        <%= bloodBank.lastVerified.toLocaleTimeString() %>
                         <br><br>
                     </ul>
                 </details>
@@ -45,7 +46,7 @@
     
         </div>
     </div>
-
+    <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>

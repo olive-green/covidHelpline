@@ -10,9 +10,74 @@
   --color-summary-3-highlight: #FFB3C0;
   --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
 }
+
 body{
   background-color: #cc99ff;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
+
+
+.newLead a{
+  display: block;
+    width: 119px;
+    height: 25px;
+    text-align: center;
+    margin:39px auto;
+    background: #399439;
+    text-decoration: none;
+    color: white;
+    padding:9px;
+}
+.newLead a:hover{
+  background-color: green;
+}
+
+/* css for delete button */
+.card #edit{
+    float:left;
+    padding: 10px;
+    /* border: 1px solid; */
+    margin: 10px;
+    background: #c2cfe6bd;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color:black;
+}
+.card #edit:hover{
+  background-color:#5171a9bd ;
+}
+
+.btn-danger {
+  color: #fff;
+  margin:10px;
+  padding:10px;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  text-decoration: none;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+.btn-success {
+  color: #fff;
+  background-color: #1e9ac0;
+  border-color: #1e9ac0;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+
+
 .header a{
     margin-left: 32px;
     color:black;
