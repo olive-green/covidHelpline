@@ -15,32 +15,34 @@
 <body>
     <div class="header">
         <h2><a href="/">Home</a></h2>
-        <h2 class="heading">All Oxygen Leads</h2>
+        <h2 class="heading">All ICU Bed Leads</h2>
     </div>
     <div class="container">
         
-        <div class="card">
+        <div class="card"> 
             <h1>Covid Helpline numbers<br> and leads</h1>
+            <% hospitals.forEach(hospitals => { %>
+
+                <details class="warning">
+                    <summary><%= hospitals.authorityName %></summary>
+                    <ul>
+                        
+                        <li>Address:</li>
+                        <%= hospitals.authorityName %>
+                        <br><br>
+                        <li>City:</li>
+                        <%= hospitals.city %>
+                        <br><br>
+                        <li>Contact No:</li>
+                        <%= hospitals.contact %>
+                        <br><br>
+                        <li>Last Verified At:</li>
+                        <%= hospitals.lastVerified.toLocaleDateString() %>
+                        <br><br>
+                    </ul>
+                </details>
+           <% }) %>
     
-            <details class="warning">
-                <summary>Virendra Blood Bank</summary>
-                <p>
-                    <tel>
-                </p>
-            </details>
-    
-            <details class="info">
-                <summary>Karishma Delhi Blood Banks</summary>
-                <p>Social distance, quarantine and isolation</p>
-                <p>Hand hygiene, cough etiquette, cleaning and laundry</p>
-                <p>When children have acute respiratory tract infections</p>
-                <p>Risk groups and their relatives</p>
-            </details>
-    
-            <details class="alert">
-                <summary>Facts and knowledge about COVID-19</summary>
-                <p>Some text to be hidden.</p>
-            </details>
         </div>
     </div>
 
