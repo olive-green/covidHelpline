@@ -37,8 +37,7 @@
                         <%= oxygen.contact %>
                         <br><br>
                         <li>Last Verified At:</li>
-                        <%= oxygen.lastVerified.toLocaleDateString() %>
-                        <%= oxygen.lastVerified.toLocaleTimeString() %>
+                        <%= new Date(oxygen.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                         <br><br>
                     </ul>
                 </details>
