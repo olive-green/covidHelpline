@@ -34,7 +34,8 @@
                         <%= oxygen.city %>
                         <br><br>
                         <li>Contact No:</li>
-                        <%= oxygen.contact %>
+                        <a href="tel:+91<%= oxygen.contact %>"><%= oxygen.contact %></a>
+                        
                         <br><br>
                         <li>Last Verified At:</li>
                         <%= new Date(oxygen.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
