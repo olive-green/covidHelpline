@@ -35,8 +35,7 @@
                             <%= plasma.contact %>
                             <br><br>
                             <li>Last Verified At:</li>
-                            <%= plasma.lastVerified.toLocaleDateString() %>
-                            <%= plasma.lastVerified.toLocaleTimeString() %>
+                                                    <%= new Date(plasma.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                             <br><br>
                         </ul>
                         <a id="edit" href="/plasma-admin/edit/<%= plasma.id %>">Edit</a>
