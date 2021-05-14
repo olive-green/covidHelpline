@@ -38,7 +38,8 @@
                         <br><br>
                         <li>Last Verified At:</li>
                         <%= hospitals.lastVerified.toLocaleDateString() %>
-                        <%= hospitals.lastVerified.toLocaleTimeString() %>
+                        
+                        <%= new Date(hospitals.lastVerified).toLocaleTimeString() %>
                         <br><br>
                     </ul>
                 </details>
