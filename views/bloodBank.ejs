@@ -34,7 +34,7 @@
                         <%= bloodBank.city %>
                         <br><br>
                         <li>Contact No:</li>
-                        <%= bloodBank.contact %>
+                        <a href="tel:+91<%= bloodBank.contact %>"><%= bloodBank.contact %></a>
                         <br><br>
                         <li>Last Verified At:</li>
                             <%= new Date(bloodBank.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
