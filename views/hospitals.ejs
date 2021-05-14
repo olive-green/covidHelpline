@@ -39,7 +39,9 @@
                         <li>Last Verified At:</li>
            
                         
-                        <%= hospitals.lastVerified.toLocaleString("en-IN") %>
+                        <%= hospitals.lastVerified.toLocaleString("en-IN") 
+                        new Date(hospitals.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})
+                        %>
                         <br><br>
                     </ul>
                 </details>
