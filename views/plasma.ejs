@@ -34,7 +34,7 @@
                         <%= plasma.city %>
                         <br><br>
                         <li>Contact No:</li>
-                        <%= plasma.contact %>
+                        <a href="tel:+91<%= plasma.contact %>"><%= plasma.contact %></a>
                         <br><br>
                         <li>Last Verified At:</li>
                             <%= new Date(plasma.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
