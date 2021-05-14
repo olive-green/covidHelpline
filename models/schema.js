@@ -18,7 +18,7 @@ const Schema= new mongoose.Schema({
     },
     lastVerified:{
         type:Date,
-        default:Date.now
+        default:new Date()
     }
 });
 
