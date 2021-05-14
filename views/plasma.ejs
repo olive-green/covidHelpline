@@ -37,8 +37,7 @@
                         <%= plasma.contact %>
                         <br><br>
                         <li>Last Verified At:</li>
-                        <%= plasma.lastVerified.toLocaleDateString() %>
-                        <%= plasma.lastVerified.toLocaleTimeString() %>
+                            <%= new Date(oxygen.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                         <br><br>
                     </ul>
                 </details>
