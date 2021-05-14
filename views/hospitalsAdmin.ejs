@@ -35,8 +35,7 @@
                             <%= hospitals.contact %>
                             <br><br>
                             <li>Last Verified At:</li>
-                            <%= hospitals.lastVerified.toLocaleDateString() %>
-                            <%= hospitals.lastVerified.toLocaleTimeString() %>
+                                              <%= new Date(oxygen.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                             <br><br>
                         </ul>
                         <a id="edit" href="/hospitals-admin/edit/<%= hospitals.id %>">Edit</a>
