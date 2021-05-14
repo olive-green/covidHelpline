@@ -37,9 +37,9 @@
                         <%= hospitals.contact %>
                         <br><br>
                         <li>Last Verified At:</li>
-                        <%= hospitals.lastVerified.toLocaleDateString() %>
+           
                         
-                        <%= new Date(hospitals.lastVerified) %>
+                        <%= hospitals.lastVerified.toLocaleString("en-IN") %>
                         <br><br>
                     </ul>
                 </details>
