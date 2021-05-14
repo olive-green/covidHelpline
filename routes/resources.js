@@ -13,6 +13,7 @@ router.post("/oxygen",async (req,res)=>{
         address:req.body.address,
         city:req.body.city,
         contact:req.body.contact,
+        lastVerified:new Date()
     });
     try{
         console.log(oxygen);
@@ -32,7 +33,7 @@ router.post("/plasma",async (req,res)=>{
         authorityName:req.body.authority,
         city:req.body.city,
         contact:req.body.contact,
-        lastVerified:req.body.lastVerified,
+        lastVerified:new Date()
     });
     try{
         plasma=await plasma.save();
@@ -50,7 +51,7 @@ router.post("/bloodBank",async (req,res)=>{
         authorityName:req.body.authority,
         city:req.body.city,
         contact:req.body.contact,
-        lastVerified:req.body.lastVerified,
+        lastVerified:new Date()
     });
     try{
         bloodBank=await bloodBank.save();
@@ -68,7 +69,7 @@ router.post("/hospitals",async (req,res)=>{
         authorityName:req.body.authority,
         city:req.body.city,
         contact:req.body.contact,
-        lastVerified:req.body.lastVerified,
+        lastVerified:new Date()
     });
     try{
         hospitals=await hospitals.save();
