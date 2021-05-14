@@ -35,8 +35,7 @@
                             <%= bloodBank.contact %>
                             <br><br>
                             <li>Last Verified At:</li>
-                            <%= bloodBank.lastVerified.toLocaleDateString() %>
-                            <%= bloodBank.lastVerified.toLocaleTimeString() %>
+                                    <%= new Date(bloodBank.lastVerified).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'}) %>
                             <br><br>
 
                         </ul>
