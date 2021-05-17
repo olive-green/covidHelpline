@@ -40,41 +40,41 @@ app.get("/hospitals",async(req,res)=>{
 })
 //plasma page
 app.get("/plasma",async(req,res)=>{
-    const plasma=await Plasma.find()
+    const plasma=await Plasma.find().sort({lastVerified: -1});
     let title="Plasma";
     res.render("plasma",{plasma:plasma,title:title});
 })
 //bloodBank page
 app.get("/bloodBank",async(req,res)=>{
-    const bloodBank=await BloodBank.find()
+    const bloodBank=await BloodBank.find().sort({lastVerified: -1});
     let title="Blood Bank"
     res.render("bloodBank",{bloodBank:bloodBank,title:title});
 })
 //oxygen page
 app.get("/oxygen",async(req,res)=>{
-    const oxygen=await Oxygen.find()
+    const oxygen=await Oxygen.find().sort({lastVerified: -1});
     let title="Oxygen"
     res.render("oxygen",{oxygen:oxygen,title:title});
 })
 
 //Oxygen admin page
 app.get("/oxygen-admin",async(req,res)=>{
-    const oxygen=await Oxygen.find()
+    const oxygen=await Oxygen.find().sort({lastVerified: -1});
     res.render("oxygenAdmin",{oxygen:oxygen});
 })
 //Plasma admin page
 app.get("/plasma-admin",async(req,res)=>{
-    const plasma=await Plasma.find();
+    const plasma=await Plasma.find().sort({lastVerified: -1});
     res.render("plasmaAdmin",{plasma:plasma});
 })
 //Hospitals admin page
 app.get("/hospitals-admin",async(req,res)=>{
-    const hospitals=await Hospitals.find();
+    const hospitals=await Hospitals.find().sort({lastVerified: -1});
     res.render("hospitalsAdmin",{hospitals:hospitals});
 })
 //BloodBank admin page
 app.get("/bloodbank-admin",async(req,res)=>{
-    const bloodBank=await BloodBank.find();
+    const bloodBank=await BloodBank.find().sort({lastVerified: -1});
     res.render("bloodBankAdmin",{bloodBank:bloodBank});
 })
 
