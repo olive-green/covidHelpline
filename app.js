@@ -34,7 +34,7 @@ app.get("/",(req,res)=>{
 
 //hospitals page
 app.get("/hospitals",async(req,res)=>{
-    const hospitals=await Hospitals.find()
+    const hospitals=await Hospitals.find().sort({lastVerified: -1});
     let title="Hospitals";
     res.render("hospitals",{hospitals:hospitals,title:title});
 })
