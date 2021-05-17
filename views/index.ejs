@@ -8,10 +8,111 @@
   <title>Covid Helpline</title>
   <link rel="stylesheet" type="text/css" href="./covid.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+    /* css for links */
+    .cd-intro{
+      text-align: center;
+      font-family: "Work Sans", sans-serif;
+    }
+    .cd-headline.rotate-1 .cd-words-wrapper {
+      display: inline-block;
+      perspective: 300px;
+    }
+
+    .cd-headline.rotate-1 b {
+      opacity: 0;
+      transform-origin: 50% 100%;
+      transform: rotateX(180deg);
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .cd-headline.rotate-1 b.is-visible {
+      position: relative;
+      opacity: 1;
+      transform: rotateX(0deg);
+    }
+
+    .cd-headline.rotate-1 b {
+      opacity: 0;
+      transform-origin: 50% 100%;
+      transform: rotateX(180deg);
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .cd-headline.rotate-1 b.is-visible {
+      position: relative;
+      opacity: 1;
+      transform: rotateX(0deg);
+      animation: cd-rotate-1-in 1.2s;
+    }
+
+    .cd-headline.rotate-1 b.is-hidden {
+      transform: rotateX(180deg);
+      animation: cd-rotate-1-out 1.2s;
+    }
+
+    @keyframes cd-rotate-1-in {
+      0% {
+        transform: rotateX(180deg);
+        opacity: 0;
+      }
+
+      35% {
+        transform: rotateX(120deg);
+        opacity: 0;
+      }
+
+      65% {
+        opacity: 0;
+      }
+
+      100% {
+        transform: rotateX(360deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes cd-rotate-1-out {
+      0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+      }
+
+      35% {
+        transform: rotateX(-40deg);
+        opacity: 1;
+      }
+
+      65% {
+        opacity: 0;
+      }
+
+      100% {
+        transform: rotateX(180deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
+  <section class="cd-intro">
+    <h1 class="cd-headline rotate-1">
+       <span>Some important links : </span>
+       <span class="cd-words-wrapper">
+          <b class="is-visible"><a href="http://dgmhup.gov.in/EN/covid19bedtrack">Check bed Availabiliy(UP)</a></b>
+          <b><a href="http://coviddelhi.com">coviddelhi.com</a></b>
+          <b><a href="http://covid19helpindia.in">covid19helpindia.in</a></b>
+       </span>
+    </h1>
+ </section>
   <div class="main">
     <div class="home">
       <h2 class="title">Stay Home Stay Safe</h2>
@@ -61,10 +162,55 @@
     </div>
   </div>
   <div class="footer">
-    <p>Made with <i class="fa fa-heart"></i> <a href="https://instagram.com/_pankajrathore__" style="font-weight:bold">By Pankaj Rathore</a>and Anoop Singh</p>
- </div>
+    <p>Made with <i class="fa fa-heart"></i> <a href="https://instagram.com/_pankajrathore__"
+        style="font-weight:bold">By Pankaj Rathore</a> and Anoop Kumar</p>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    jQuery(document).ready(function ($) {
+      var animationDelay = 2500;
 
+      animateHeadline($('.cd-headline'));
+
+      function animateHeadline($headlines) {
+        $headlines.each(function () {
+          var headline = $(this);
+          //trigger animation
+          setTimeout(function () { hideWord(headline.find('.is-visible')) }, animationDelay);
+          //other checks here ...
+        });
+      }
+
+      function hideWord($word) {
+        var nextWord = takeNext($word);
+        switchWord($word, nextWord);
+        setTimeout(function () { hideWord(nextWord) }, animationDelay);
+      }
+
+      function takeNext($word) {
+        return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
+      }
+
+      function switchWord($oldWord, $newWord) {
+        $oldWord.removeClass('is-visible').addClass('is-hidden');
+        $newWord.removeClass('is-hidden').addClass('is-visible');
+      }
+      singleLetters($('.cd-headline.letters').find('b'));
+
+      function singleLetters($words) {
+        $words.each(function () {
+          var word = $(this),
+            letters = word.text().split(''),
+            selected = word.hasClass('is-visible');
+          for (i in letters) {
+            letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>' : '<i>' + letters[i] + '</i>';
+          }
+          var newLetters = letters.join('');
+          word.html(newLetters);
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
